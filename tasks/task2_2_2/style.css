@@ -1,0 +1,22 @@
+p 
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+p + p
+{
+    color: red;
+    text-decoration: none;
+}
+
+p > a
+{
+    color: orange;
+    text-decoration: none;
+}
+ul h2
+{
+    color: green;
+    text-decoration: none;
+}
