@@ -20,5 +20,33 @@ class ApplicationTest : FreeSpec({
         }
     }
 
+    "Path /hello/joe yields 'Hello joe!' greeting" {
+        testApplication {
+            configure()
+            val response = client.get("/hello/joe")
+            response.status shouldBe HttpStatusCode.OK
+            response.headers["Content-Type"]?.shouldContain("text/plain")
+            response.bodyAsText() shouldBe "Hello joe!"
+        }
+    }
+
+    "Path /hello/jane yields 'Hello jane!' greeting" {
+        testApplication {
+            configure()
+            val response = client.get("/hello/jane")
+            response.status shouldBe HttpStatusCode.OK
+            response.headers["Content-Type"]?.shouldContain("text/plain")
+            response.bodyAsText() shouldBe "Hello jane!"
+        }
+    }
+
+    "Path /hello/ without a name returns 404" {
+        testApplication {
+            configure()
+            val response = client.get("/hello/")
+            response.status shouldBe HttpStatusCode.NotFound
+        }
+    }
+
     // Add more tests here
 })

@@ -17,3 +17,4 @@ dependencies:
   - $ktor.server.netty
   - $ktor.server.pebble
   - $libs.logback.classic
+  - $ktor.server.pebble
